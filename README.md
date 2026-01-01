@@ -15,9 +15,10 @@ Terraform module to manage ArvanCloud CDN Cache resource.
 
 ## Important Notes
 
-> ⚠️ **Import Required**: This resource cannot be created from scratch. The caching settings already exist for your CDN domain. You must **import** the existing resource before applying changes.
+> [!WARNING]
+> **Import Required**: This resource cannot be created from scratch. The caching settings already exist for your CDN domain. You must **import** the existing resource before applying changes.
 >
-> ⚠️ **No Deletion**: Due to API limitations, destroying this resource will remove it from Terraform state but will not delete the actual caching settings.
+> **No Deletion**: Due to API limitations, destroying this resource will remove it from Terraform state but will not delete the actual caching settings.
 
 ## Usage
 
@@ -76,10 +77,10 @@ module "cdn_cache" {
 
 | Name                | Description                                                 | Type     | Default     | Required |
 | ------------------- | ----------------------------------------------------------- | -------- | ----------- | :------: |
-| `domain`            | UUID or the name of the CDN domain                          | `string` | n/a         |   yes    |
-| `developer_mode`    | Enable or disable developer mode (bypasses caching)         | `bool`   | `false`     |    no    |
-| `consistent_uptime` | Enable consistent uptime mode for improved availability     | `bool`   | `true`      |    no    |
-| `max_size`          | Maximum size of cacheable content in bytes (0 - 2147483648) | `number` | `104857600` |    no    |
+| `domain`            | UUID or the name of the CDN domain                          | `string` | n/a         |   Yes    |
+| `developer_mode`    | Enable or disable developer mode (bypasses caching)         | `bool`   | `false`     |    No    |
+| `consistent_uptime` | Enable consistent uptime mode for improved availability     | `bool`   | `true`      |    No    |
+| `max_size`          | Maximum size of cacheable content in bytes (0 - 2147483648) | `number` | `104857600` |    No    |
 
 ## Outputs
 
