@@ -16,7 +16,7 @@ Terraform module to manage ArvanCloud CDN Cache resource.
 ## Important Notes
 
 > [!WARNING]
-> **Import Required**: This resource cannot be created from scratch. The caching settings already exist for your CDN domain. You must **import** the existing resource before applying changes.
+> **Import Required**: This resource cannot be created from scratch. The caching settings already exist for your domain. You must **import** the existing resource before applying changes.
 >
 > **No Deletion**: Due to API limitations, destroying this resource will remove it from Terraform state but will not delete the actual caching settings.
 
@@ -25,7 +25,7 @@ Terraform module to manage ArvanCloud CDN Cache resource.
 ### Basic Usage
 
 ```hcl
-module "cdn_cache" {
+module "cache" {
   source = "git@github.com:terraform-r1c-modules/Terraform-R1C-Cache.git?ref=main"
 
   domain            = "example.ir"
@@ -41,16 +41,16 @@ Before using this module, you must import the existing caching configuration:
 
 ```bash
 # Import using the module path
-terraform import 'module.cdn_cache.arvancloud_cdn_domain_caching.this' 'example.ir'
+terraform import 'module.cache.arvancloud_cdn_domain_caching.this' 'example.ir'
 
 # Or import using UUID
-terraform import 'module.cdn_cache.arvancloud_cdn_domain_caching.this' '<domain-uuid>'
+terraform import 'module.cache.arvancloud_cdn_domain_caching.this' '<domain-uuid>'
 ```
 
 ### Production Configuration
 
 ```hcl
-module "cdn_cache" {
+module "cache" {
   source = "git@github.com:terraform-r1c-modules/Terraform-R1C-Cache.git?ref=main"
 
   domain            = "production.example.ir"
@@ -63,7 +63,7 @@ module "cdn_cache" {
 ### Development Configuration
 
 ```hcl
-module "cdn_cache" {
+module "cache" {
   source = "git@github.com:terraform-r1c-modules/Terraform-R1C-Cache.git?ref=main"
 
   domain            = "dev.example.ir"
@@ -122,7 +122,7 @@ provider "arvancloud" {
   api_key = var.arvancloud_api_key
 }
 
-module "cdn_cache" {
+module "cache" {
   source = "git@github.com:terraform-r1c-modules/Terraform-R1C-Cache.git?ref=main"
 
   domain            = "example.ir"
@@ -132,7 +132,7 @@ module "cdn_cache" {
 }
 
 output "cache_last_updated" {
-  value = module.cdn_cache.last_updated
+  value = module.cache.last_updated
 }
 ```
 
