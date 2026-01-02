@@ -1,7 +1,7 @@
 # Terraform ArvanCloud CDN Cache Module
 
 ![Terraform](https://img.shields.io/badge/Terraform-%3E%3D1.5-623CE4?logo=terraform)
-![Version](https://img.shields.io/github/v/release/terraform-r1c-modules/terraform-r1c-cache?logo=github&color=red&label=Version)
+![Version](https://img.shields.io/github/v/release/terraform-r1c-modules/terraform-r1c-cdn-cache?logo=github&color=red&label=Version)
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 
 Terraform module to manage ArvanCloud CDN Cache resource.
@@ -26,7 +26,7 @@ Terraform module to manage ArvanCloud CDN Cache resource.
 
 ```hcl
 module "cache" {
-  source = "git@github.com:terraform-r1c-modules/Terraform-R1C-Cache.git?ref=main"
+  source = "git@github.com:terraform-r1c-modules/Terraform-R1C-CDN-Cache.git?ref=main"
 
   domain            = "example.ir"
   developer_mode    = false
@@ -50,8 +50,8 @@ terraform import 'module.cache.arvancloud_cdn_domain_caching.this' '<domain-uuid
 ### Production Configuration
 
 ```hcl
-module "cache" {
-  source = "git@github.com:terraform-r1c-modules/Terraform-R1C-Cache.git?ref=main"
+module "cdn_cache" {
+  source = "git@github.com:terraform-r1c-modules/Terraform-R1C-CDN-Cache.git?ref=main"
 
   domain            = "production.example.ir"
   developer_mode    = false     # Keep disabled in production
@@ -63,8 +63,8 @@ module "cache" {
 ### Development Configuration
 
 ```hcl
-module "cache" {
-  source = "git@github.com:terraform-r1c-modules/Terraform-R1C-Cache.git?ref=main"
+module "cdn_cache" {
+  source = "git@github.com:terraform-r1c-modules/Terraform-R1C-CDN-Cache.git?ref=main"
 
   domain            = "dev.example.ir"
   developer_mode    = true      # Bypass cache for testing
@@ -122,8 +122,8 @@ provider "arvancloud" {
   api_key = var.arvancloud_api_key
 }
 
-module "cache" {
-  source = "git@github.com:terraform-r1c-modules/Terraform-R1C-Cache.git?ref=main"
+module "cdn_cache" {
+  source = "git@github.com:terraform-r1c-modules/Terraform-R1C-CDN-Cache.git?ref=main"
 
   domain            = "example.ir"
   developer_mode    = false
@@ -131,8 +131,8 @@ module "cache" {
   max_size          = 104857600
 }
 
-output "cache_last_updated" {
-  value = module.cache.last_updated
+output "cdn_cache_last_updated" {
+  value = module.cdn_cache.last_updated
 }
 ```
 
