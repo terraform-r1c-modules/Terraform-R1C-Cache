@@ -16,9 +16,9 @@ Terraform module to manage ArvanCloud CDN Cache resource.
 ## Important Notes
 
 > [!WARNING]
-> **Import Required**: This resource cannot be created from scratch. The caching settings already exist for your domain. You must **import** the existing resource before applying changes.
+> **Import Required**: This resource cannot be created from scratch. The cache settings already exist for your domain. You must **import** the existing resource before applying changes.
 >
-> **No Deletion**: Due to API limitations, destroying this resource will remove it from Terraform state but will not delete the actual caching settings.
+> **No Deletion**: Due to API limitations, destroying this resource will remove it from Terraform state but will not delete the actual cache settings.
 
 ## Usage
 
@@ -37,14 +37,14 @@ module "cache" {
 
 ### Import Existing Resource
 
-Before using this module, you must import the existing caching configuration:
+Before using this module, you must import the existing cache configuration:
 
 ```bash
 # Import using the module path
-terraform import 'module.cache.arvancloud_cdn_domain_caching.this' 'example.ir'
+terraform import 'module.cache.arvancloud_cdn_domain_cache.this' 'example.ir'
 
 # Or import using UUID
-terraform import 'module.cache.arvancloud_cdn_domain_caching.this' '<domain-uuid>'
+terraform import 'module.cache.arvancloud_cdn_domain_cache.this' '<domain-uuid>'
 ```
 
 ### Production Configuration
@@ -78,7 +78,7 @@ module "cdn_cache" {
 | Name                | Description                                                 | Type     | Default     | Required |
 | ------------------- | ----------------------------------------------------------- | -------- | ----------- | :------: |
 | `domain`            | UUID or the name of the CDN domain                          | `string` | n/a         |   Yes    |
-| `developer_mode`    | Enable or disable developer mode (bypasses caching)         | `bool`   | `false`     |    No    |
+| `developer_mode`    | Enable or disable developer mode (bypasses cache)         | `bool`   | `false`     |    No    |
 | `consistent_uptime` | Enable consistent uptime mode for improved availability     | `bool`   | `true`      |    No    |
 | `max_size`          | Maximum size of cacheable content in bytes (0 - 2147483648) | `number` | `104857600` |    No    |
 
@@ -86,11 +86,11 @@ module "cdn_cache" {
 
 | Name                | Description                                                        |
 | ------------------- | ------------------------------------------------------------------ |
-| `domain`            | The domain name or UUID for which caching settings are configured  |
+| `domain`            | The domain name or UUID for which cache settings are configured  |
 | `developer_mode`    | Whether developer mode is enabled for the domain                   |
 | `consistent_uptime` | Whether consistent uptime mode is enabled for the domain           |
 | `max_size`          | Maximum size of cacheable content in bytes                         |
-| `last_updated`      | The timestamp of the last update to the caching settings (RFC3339) |
+| `last_updated`      | The timestamp of the last update to the cache settings (RFC3339) |
 
 ## Cache Size Reference
 

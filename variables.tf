@@ -1,5 +1,5 @@
 variable "domain" {
-  description = "UUID or the name of the CDN domain. This is required and used to identify the domain for caching settings."
+  description = "UUID or the name of the CDN domain. This is required and used to identify the domain for cache settings."
   type        = string
 
   validation {
@@ -11,7 +11,7 @@ variable "domain" {
 variable "developer_mode" {
   description = <<-EOT
     Enable or disable developer mode for the CDN domain.
-    When enabled, caching is bypassed which is useful during development.
+    When enabled, cache is bypassed which is useful during development.
     Should be disabled in production environments.
   EOT
   type        = bool

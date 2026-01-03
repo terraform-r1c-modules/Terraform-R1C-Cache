@@ -1,4 +1,4 @@
-resource "arvancloud_cdn_domain_caching" "this" {
+resource "arvancloud_cdn_domain_cache" "this" {
   domain            = var.domain
   developer_mode    = var.developer_mode
   consistent_uptime = var.consistent_uptime
