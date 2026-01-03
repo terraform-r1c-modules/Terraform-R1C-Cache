@@ -96,6 +96,9 @@ module "cdn_cache" {
 | 1 GB   | 1073741824 |
 | 2 GB   | 2147483648 |
 
+> [!NOTE]
+> The maximum allowed cache size is 2 GB (2147483648 bytes). Please refer to domain plans for specific limits.
+
 ## Examples
 
 ```hcl
